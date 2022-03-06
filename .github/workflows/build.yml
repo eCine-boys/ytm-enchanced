@@ -17,6 +17,9 @@ jobs:
         with:
           node-version: 16.13.0
 
+      - name: Install typescript
+        run: npm i -g typescript
+
       - name: Build typescript
         run: npm run compile
 
