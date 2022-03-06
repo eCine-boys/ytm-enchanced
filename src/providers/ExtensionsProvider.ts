@@ -2,6 +2,7 @@ import {BrowserWindow, Session} from "electron";
 import Logger from "./LoggerProvider";
 import path from "path";
 import fs from "fs";
+import Events from "./EventsProvider";
 
 class ExtensionsLoader {
     constructor(session: Session) {
@@ -25,6 +26,11 @@ class ExtensionsLoader {
                 Logger("ERROR", `${extension} failed to load\n${err.Message || err}`);
             }
         }
+
+        Logger("INFO", "Extensions loaded");
+
+        Events.getInstance().emit("extensions-loaded");
+        
     }
 }
 

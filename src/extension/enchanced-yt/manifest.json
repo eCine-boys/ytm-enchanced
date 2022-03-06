@@ -10,7 +10,6 @@
     "default_icon": "icons/enchanced.png"
   },
   "permissions": [
-    "tabs",
     "declarativeNetRequest",
     "webRequestBlocking",
     "<all_urls>"

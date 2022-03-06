@@ -1,21 +1,52 @@
 {
   "name": "ytm_enchanced",
-  "version": "0.0.1",
+  "author": {
+    "name": "Kore"
+  },
+  "version": "0.0.2",
   "description": "Youtube Music com ad-block e funcionalidades adicionais",
   "main": "build/index.js",
   "license": "MIT",
+  "publish": [
+    {
+      "repo": "ytm-enchanced",
+      "provider": "github",
+      "owner": "eCine-boys"
+    }
+  ],
   "scripts": {
-    "start": "npm run compile && electron build",
+    "start": "npm run compile && electron",
     "compile": "yarn clean && yarn tsc && yarn copy-files",
-    "clean": "rm -rf ./build",
-    "copy-files": "copyfiles -u 1 ./src/extension/** ./build/src"
+    "clean": "rm -rf ./build && rm -rf ./dist",
+    "copy-files": "copyfiles -u 1 ./src/extension/** ./build/src && copyfiles -u 1 *.desktop ./build/",
+    "dist": "yarn compile && electron-builder --win --x64 --publish never",
+    "dist-publish": "yarn compile && electron-builder --win --x64 --publish always"
+  },
+  "build": {
+    "appId": "ytm_enchanced",
+    "files": [
+      "build/**/*",
+      "node_modules/**/*",
+      "package.json",
+      ".desktop"
+    ],
+    "win": {
+      "publish": [
+        "github"
+      ]
+    },
+    "directories": {
+      "output": "dist"
+    }
   },
   "dependencies": {
+    "@types/node": "^17.0.21",
     "copyfiles": "^2.4.1",
-    "electron": "^17.1.0",
     "typescript": "^4.6.2"
   },
   "devDependencies": {
+    "electron": "^17.1.0",
+    "electron-builder": "^22.14.13",
     "ts-node-dev": "^1.1.8"
   }
 }
