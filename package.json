@@ -3,7 +3,7 @@
   "author": {
     "name": "Kore"
   },
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Youtube Music com ad-block e funcionalidades adicionais",
   "main": "build/index.js",
   "license": "MIT",
