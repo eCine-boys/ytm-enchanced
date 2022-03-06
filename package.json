@@ -3,7 +3,7 @@
   "author": {
     "name": "Kore"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Youtube Music com ad-block e funcionalidades adicionais",
   "main": "build/index.js",
   "license": "MIT",
@@ -15,10 +15,10 @@
     }
   ],
   "scripts": {
-    "start": "npm run compile && electron",
+    "start": "npm run compile && electron build",
     "compile": "yarn clean && yarn tsc && yarn copy-files",
     "clean": "rm -rf ./build && rm -rf ./dist",
-    "copy-files": "copyfiles -u 1 ./src/extension/** ./build/src && copyfiles -u 1 *.desktop ./build/",
+    "copy-files": "copyfiles -u 1 ./src/extension/** ./build/src && copyfiles -u 1 ./src/assets/** ./build/src",
     "dist": "yarn compile && electron-builder --win --x64 --publish never",
     "dist-publish": "yarn compile && electron-builder --win --x64 --publish always"
   },
@@ -31,6 +31,7 @@
       ".desktop"
     ],
     "win": {
+      "icon": "build/src/assets/ytico.png",
       "publish": [
         "github"
       ]

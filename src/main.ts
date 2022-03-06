@@ -29,10 +29,6 @@ class MainWindow {
         //     this.mainWindow.show();
         // });
 
-        this.mainWindow.on('closed', () => {
-            this.mainWindow.close();
-        });
-
     }
 }
 
