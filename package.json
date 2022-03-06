@@ -1,0 +1,21 @@
+{
+  "name": "ytm_enchanced",
+  "version": "0.0.1",
+  "description": "Youtube Music com ad-block e funcionalidades adicionais",
+  "main": "build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run compile && electron build",
+    "compile": "yarn clean && yarn tsc && yarn copy-files",
+    "clean": "rm -rf ./build",
+    "copy-files": "copyfiles -u 1 ./src/extension/** ./build/src"
+  },
+  "dependencies": {
+    "copyfiles": "^2.4.1",
+    "electron": "^17.1.0",
+    "typescript": "^4.6.2"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "manifest_version": 2,
+  "name": "Enchanced YT",
+  "description": "Auto skip youtube / youtube music ads & Download video/audio.",
+  "version": "1.0",
+  "icons": {
+    "512": "icons/enchanced.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/enchanced.png"
+  },
+  "permissions": [
+    "tabs",
+    "declarativeNetRequest",
+    "webRequestBlocking",
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "http://www.youtube.com/*"],
+      "js": ["scripts/ytdl.js", "scripts/skip.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://music.youtube.com/*", "http://music.youtube.com/*"],
+      "js": ["scripts/ytm.js", "scripts/skip.js"],
+      "run_at": "document_start"
+    },
+    {
+      "js": ["scripts/twitch.js"],
+      "matches": ["https://*.twitch.tv/*"],
+      "run_at": "document_start"
+    }
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "enabled": true,
+        "id": "ruleset_1",
+        "path": "rules.json"
+      }
+    ]
+  },
+  "background": {
+    "persistent": false,
+    "scripts": ["scripts/background.js"]
+  }
+}
