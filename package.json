@@ -32,7 +32,7 @@
       ".desktop"
     ],
     "win": {
-      "icon": "build/src/assets/ytico.jpg",
+      "icon": "build/src/assets/ytico.png",
       "publish": [
         "github"
       ]
