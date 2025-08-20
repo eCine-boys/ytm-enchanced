@@ -21,7 +21,7 @@ class MainWindow {
         this.mainWindow.loadURL("https://music.youtube.com/");
         this.mainWindow.maximize();
 
-        this.mainWindow.webContents.on('media-started-playing', (e: any) => {
+        (this.mainWindow.webContents as any).on('media-started-playing', () => {
             console.log(this.mainWindow.webContents.getURL());
         });
 
