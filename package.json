@@ -44,9 +44,11 @@
   "dependencies": {
     "@types/node": "^24.3.0",
     "copyfiles": "^2.4.1",
+    "discord-rpc": "^4.0.1",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
+    "@types/discord-rpc": "^4.0.9",
     "electron": "^37.3.1",
     "electron-builder": "^26.0.12",
     "ts-node-dev": "^1.1.8"
